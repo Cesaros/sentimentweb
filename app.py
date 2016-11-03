@@ -15,6 +15,11 @@ cur_dir = os.path.dirname(__file__)
 clf = pickle.load(open(os.path.join(cur_dir,
                  'pkl_objects',
                  'classifier.pkl'), 'rb'))
+
+#clf2 = pickle.load(open(os.path.join(cur_dir,
+      #           'pkl_objects',
+      #           'classifier2.pkl'), 'rb'))
+
 db = os.path.join(cur_dir, 'reviews.sqlite')
 
 def classify(document):
@@ -23,6 +28,13 @@ def classify(document):
     y = clf.predict(X)[0]
     proba = np.max(clf.predict_proba(X))
     return label[y], proba
+
+def classify2(document):
+    label = {0: 'negative', 1: 'positive'}
+    X = vect.transform([document])
+    y2 = clf.predict(X)[0]
+    proba2 = np.max(clf.predict_proba(X))
+    return label[y2], proba2
 
 def train(document, y):
     X = vect.transform([document])
@@ -53,10 +65,12 @@ def results():
     if request.method == 'POST' and form.validate():
         review = request.form['moviereview']
         y, proba = classify(review)
+        y2, proba2 = classify2(review)
         return render_template('results.html',
                                 content=review,
                                 prediction=y,
-                                probability=round(proba*100, 2))
+                                probability=round(proba*100, 2), prediction2=y2,
+                                probability2=round(proba2*100, 2))
     return render_template('reviewform.html', form=form)
 
 @app.route('/thanks', methods=['POST'])

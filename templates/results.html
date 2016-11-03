@@ -1,32 +1,34 @@
 <!doctype html>
 <html>
   <head>
-    <title>Movie Classification</title>
+    <title>Sentence Classification</title>
 	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   </head>
   <body>
 
-<h3>Your movie review:</h3>
-<div>{{ content }}</div>
+	<h3>Your sentence was:</h3>
+	<div>{{ content }}</div>
 
-<h3>Prediction:</h3>
-<div>This movie review is <strong>{{ prediction }}</strong>
-	 (probability: {{ probability }}%).</div>
+	<h3>Prediction:</h3>
+	<div>This sentence is <strong>{{ prediction }}</strong>
+		 (probability: {{ probability }}%) using Logistic Regression</div>
+	<div>This sentence is <strong>{{ prediction2 }}</strong>
+		 (probability: {{ probability2 }}%) using Doc2Vec</div>
 
-<div id='button'>
-	  <form action="/thanks" method="post">
-	    <input type=submit value='Correct' name='feedback_button'>
-		<input type=submit value='Incorrect' name='feedback_button'>
-		<input type=hidden value='{{ prediction }}' name='prediction'>
-		<input type=hidden value='{{ content }}' name='review'>
-	  </form>
-</div>
+	<div id='button'>
+		  <form action="/thanks" method="post">
+		    <input type=submit value='Correct' name='feedback_button'>
+			<input type=submit value='Incorrect' name='feedback_button'>
+			<input type=hidden value='{{ prediction }}' name='prediction'>
+			<input type=hidden value='{{ content }}' name='review'>
+		  </form>
+	</div>
 
-<div id='button'>
-	  <form action="/">
-	    <input type=submit value='Submit another review'>
-	  </form>
-</div>
+	<div id='button'>
+		  <form action="/">
+		    <input type=submit value='Submit another sentence'>
+		  </form>
+	</div>
 
   </body>
 </html>
