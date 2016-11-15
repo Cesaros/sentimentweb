@@ -1,24 +1,52 @@
-body{
-	width:800px;
-	background: lightsteelblue;
-	text-align: center;
-}
 
 #button{
 	padding-top: 20px;
 }
 
 
-
-h1 {
-    text-align: center;
+html {
+	font-family: "Helvetica";
+	background: lightblue;
 }
 
+body {
+	background: lightblue;
+	max-width: 600px;
+	margin: 0 auto;
 
-h2 {
-    text-align: center;
+/*	width:800px;*/
+	text-align: center;
 }
 
-h3 {
-    text-align: center;
+#header {
+	padding-top: 10;
+	background: lightblue;
+}
+
+#inner-header {
+	padding-left: 10;
+}
+
+#main{
+	padding-left: 10
+}
+
+input[type="text"], select {
+	color: grey;
+	border: 1px solid lightsteelblue;
+	height: 30px;
+	line-height:15px;
+	margin: 2px 6px 16px 0px;
+}
+
+input[type="submit"] {
+	padding: 5px 10px 5px 10px;
+	color: black;
+	background: lightsteelblue;
+	border: none;
+	box-shadow: 1px 1px 1px #4C6E91;
+}
+
+input[type="submit"]:hover{
+	background: steelblue;
 }

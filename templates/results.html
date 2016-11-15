@@ -10,19 +10,19 @@
 	<div>{{ content }}</div>
 
 	<h3>Prediction:</h3>
-	<div>This sentence is <strong>{{ prediction }}</strong>
+	<div><strong>{{ prediction }}</strong>
 		 (probability: {{ probability }}%) using Logistic Regression</div>
-	<div>This sentence is <strong>{{ prediction2 }}</strong>
+	<div><strong>{{ prediction2 }}</strong>
 		 (probability: {{ probability2 }}%) using Doc2Vec</div>
 
-	<div id='button'>
+<!-- 	<div id='button'>
 		  <form action="/thanks" method="post">
 		    <input type=submit value='Correct' name='feedback_button'>
 			<input type=submit value='Incorrect' name='feedback_button'>
 			<input type=hidden value='{{ prediction }}' name='prediction'>
 			<input type=hidden value='{{ content }}' name='review'>
 		  </form>
-	</div>
+	</div> -->
 
 	<div id='button'>
 		  <form action="/">
